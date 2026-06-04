@@ -1,0 +1,49 @@
+name: Update COVER_IMGS
+
+on:
+  schedule:
+    - cron: '0 21 * * *'  # 毎日 06:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch og:image from article
+        id: og
+        run: |
+          ARTICLE="https://uta-maro.jp/entry/2026/06/03/003834"
+          HTML=$(curl -fsSL -A "Mozilla/5.0" "$ARTICLE")
+          OG=$(printf '%s' "$HTML" | grep -oE '<meta property="og:image" content="[^"]+"' | head -1 | sed 's/.*content="//;s/"$//')
+          if [ -z "$OG" ]; then
+            echo "::error::og:image not found in $ARTICLE"
+            exit 1
+          fi
+          echo "url=$OG" >> "$GITHUB_OUTPUT"
+          echo "Found og:image = $OG"
+
+      - name: Update COVER_IMGS in HTML
+        run: |
+          OG='${{ steps.og.outputs.url }}'
+          for f in sumaho_simulator.html index.html; do
+            [ -f "$f" ] || continue
+            sed -i "s|plan_detail: '[^']*'|plan_detail: '$OG'|" "$f"
+          done
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet; then
+            echo "No changes - og:image is already up to date"
+            exit 0
+          fi
+          git add sumaho_simulator.html index.html
+          git commit -m "auto: og:image更新"
+          git push
