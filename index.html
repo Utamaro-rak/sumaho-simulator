@@ -17,6 +17,9 @@
 <meta name="twitter:title" content="楽天モバイルなら家族で月いくら?｜料金シミュレーター" />
 <meta name="twitter:description" content="データ量・人数・割引を入れるだけ。家族で月いくらかその場で計算🐰" />
 <meta name="twitter:image" content="https://tools.uta-maro.jp/ogp.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"楽天モバイル 料金シミュレーター｜家族で月いくら?","url":"https://tools.uta-maro.jp/","description":"データ量・家族の人数・こども割・青春割・シニアを入れるだけ。楽天モバイルにすると家族みんなで月いくらか、その場で計算できる無料の計算機です。","applicationCategory":"FinanceApplication","operatingSystem":"Web","browserRequirements":"JavaScriptが有効なブラウザ","inLanguage":"ja","isAccessibleForFree":true,"image":"https://tools.uta-maro.jp/ogp.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Person","name":"うたまろ","url":"https://uta-maro.jp/about"},"publisher":{"@type":"Organization","name":"社員が伝えたい楽天モバイル","url":"https://uta-maro.jp/","logo":{"@type":"ImageObject","url":"https://cdn-ak.f.st-hatena.com/images/fotolife/u/utamaro_rak/20260718/20260718091524.png"}}}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQ9J7PS3VM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -102,6 +105,27 @@
   .bubble-wrap .artcard{ margin-top:0; }
   .note{ font-size:11px; color:#a8939a; margin-top:14px; }
   .note a{ color:#a8939a; }
+  /* 説明セクション(アコーディオン) */
+  .seo-sec{ margin:26px 0 0; }
+  .acc{ border:1px solid var(--line); border-radius:12px; margin:0 0 10px; background:#fff; overflow:hidden; }
+  .acc summary{ list-style:none; cursor:pointer; padding:13px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; -webkit-tap-highlight-color:transparent; -webkit-user-select:none; user-select:none; }
+  .acc summary::-webkit-details-marker{ display:none; }
+  .acc summary h2{ font-size:16px; font-weight:800; color:#5b4148; margin:0; padding:0; border:none; }
+  .acc summary::after{ content:"＋"; color:var(--mag); font-size:19px; font-weight:800; line-height:1; flex-shrink:0; }
+  .acc[open] summary::after{ content:"−"; }
+  .acc[open] summary{ border-bottom:1px solid var(--line); }
+  .acc-body{ padding:14px 16px 16px; font-size:14.5px; color:#5b4148; }
+  .acc-body p{ margin:0 0 10px; }
+  .acc-body ul,.acc-body ol{ margin:0 0 12px; padding-left:1.2em; }
+  .acc-body li{ margin:6px 0; }
+  .acc-body a{ color:var(--mag); font-weight:700; }
+  .faq-q{ font-weight:800; color:#5b4148; margin:14px 0 5px !important; }
+  .faq-q:first-child{ margin-top:0 !important; }
+  .author-box{ display:flex; gap:12px; align-items:center; border:1px solid var(--line); border-radius:12px; padding:13px; background:#fff0f4; margin:16px 0 0; }
+  .author-box img{ width:52px; height:52px; border-radius:50%; flex-shrink:0; border:1px solid var(--line); }
+  .author-box .a-txt{ font-size:12.5px; line-height:1.6; color:#5b4148; }
+  .author-box .a-name{ font-weight:800; color:#2b2b2b; display:block; }
+  .author-box a{ color:var(--mag); }
 
 </style>
 </head>
@@ -239,6 +263,49 @@
 
     <p class="note">※本診断はRakuten最強プラン(段階制・税抜 980/1,980/2,980円)＋最強家族割(1回線 月100円引き)で試算した目安です。実際の料金は使用量・条件で変わります。最新は<a href="https://network.mobile.rakuten.co.jp/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。<br />※こども割・最強青春割・シニアプログラムはエントリーや条件が必要です。</p>
   </div>
+
+  <section class="seo-sec">
+    <details class="acc">
+      <summary><h2>楽天モバイル料金シミュレーションとは・使い方</h2></summary>
+      <div class="acc-body">
+        <p>楽天モバイルに乗り換えた場合の月額料金をすぐ試算できる無料ツールです。データ量・回線数・各種割引を入力するだけで、月々の目安がその場で分かります。</p>
+        <ol>
+          <li>「かんたん」または「くわしく」を選ぶ</li>
+          <li>データ量・回線数(または家族の年齢構成)を選択</li>
+          <li>「診断する」を押すと月額料金の目安が表示されます</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><h2>楽天モバイルの料金プラン</h2></summary>
+      <div class="acc-body">
+        <p>Rakuten最強プランは段階制です。〜3GBまで980円、〜20GBまで1,980円、無制限でも2,980円(税抜)。2回線目以降は1回線につき月100円引きの家族割も適用されます。</p>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><h2>よくある質問</h2></summary>
+      <div class="acc-body">
+        <p class="faq-q">無料ですか?</p>
+        <p class="faq-a">はい、登録不要・完全無料で何度でも試算できます。</p>
+
+        <p class="faq-q">実際の料金と違うことはありますか?</p>
+        <p class="faq-a">目安のため、正確な金額は公式サイトでご確認ください。</p>
+
+        <p class="faq-q">家族の人数が多くても計算できますか?</p>
+        <p class="faq-a">はい、回線数を追加するほど家族割が反映されます。</p>
+
+        <p class="faq-q">こども割・青春割・シニアプログラムも計算できますか?</p>
+        <p class="faq-a">「くわしく診断」で年齢構成を入力すると反映されます。</p>
+      </div>
+    </details>
+
+    <div class="author-box">
+      <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/u/utamaro_rak/20260718/20260718091524.png" alt="うたまろ(楽天社員)" width="56" height="56" loading="lazy" />
+      <span class="a-txt"><span class="a-name">この計算機を作った人：うたまろ（楽天社員）</span>楽天デザイナーとして働く現役社員。電気・ガス・銀行・光回線まで楽天でまとめる節約目線で発信しています。<a href="https://uta-maro.jp/about">プロフィールを見る</a></span>
+    </div>
+  </section>
 </div>
 
 <script>
